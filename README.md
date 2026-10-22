@@ -1,5 +1,5 @@
 # Staff-Auth-Frontend
-The SolidJS frontend for [Staff-Auth](https://github.com/true-og/Staff-Auth).
+The SolidJS frontend for [Staff-Auth](https://git.trueog.net/trueog/Staff-Auth).
 
 ## Building
 1. `pnpm install`
