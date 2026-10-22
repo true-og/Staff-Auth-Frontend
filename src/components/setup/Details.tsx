@@ -10,17 +10,13 @@ export default function DetailsComponent(props: {
 }) {
   const { t } = useI18n();
 
-  const [email, setEmail] = createSignal("");
   const [password, setPassword] = createSignal("");
   const [error, setError] = createSignal<string | null>(null);
   const [fatalError, setFatalError] = createSignal<Error | null>(null);
 
   async function submit() {
     try {
-      await setupApi.details(
-        { email: email(), password: password() },
-        props.token,
-      );
+      await setupApi.details({ password: password() }, props.token);
     } catch (err) {
       if (!(err instanceof AppError)) {
         setFatalError(err as Error);
@@ -52,20 +48,6 @@ export default function DetailsComponent(props: {
           }}
         >
           <fieldset class="fieldset">
-            <label for="email" class="label">
-              {t("setup.details.email")}
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              autocomplete="email"
-              class="input w-full"
-              placeholder={t("setup.details.email")}
-              value={email()}
-              onInput={(e) => setEmail(e.target.value)}
-              required
-            />
             <label for="password" class="label">
               {t("setup.details.password")}
             </label>

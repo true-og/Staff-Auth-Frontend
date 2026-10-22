@@ -24,10 +24,7 @@ export const setupApi = {
     return stage;
   },
 
-  details: async (
-    details: { email: string; password: string },
-    token: string,
-  ) => {
+  details: async (details: { password: string }, token: string) => {
     let response: Response;
     try {
       response = await fetch(`${BASE_URL}/setup/details`, {
